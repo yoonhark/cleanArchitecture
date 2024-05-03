@@ -16,3 +16,12 @@ dependencyResolutionManagement {
 
 rootProject.name = "CleanArchitecture"
 include(":app")
+include(":core:data")
+include(":core:common")
+include(":core:domain")
+include(":core:designsystem")
+include(":core:database")
+include(":core:network")
+include(":feature:hello")
+include(":core:ui")
+include(":core:datastore")

@@ -24,4 +24,11 @@ plugins {
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.gms) apply false
     alias(libs.plugins.room) apply false
+    alias(libs.plugins.protobuf) apply false
+}
+
+subprojects {
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.jvmTarget = "1.8"
+    }
 }

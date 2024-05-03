@@ -13,9 +13,8 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
         with(target) {
 
             with(pluginManager) {
-                apply("tmapauto.android.library")
-                apply("tmapauto.android.hilt")
-                apply("androidx.navigation.safeargs.kotlin")
+                apply("harkhark.android.library")
+                apply("harkhark.android.hilt")
             }
 
             extensions.configure<LibraryExtension> {
@@ -29,6 +28,10 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 add("implementation", project(":core:common"))
                 add("implementation", project(":core:domain"))
                 add("implementation", project(":core:designsystem"))
+
+                add("implementation", libs.findLibrary("androidx.hilt.navigation.compose").get())
+                add("implementation", libs.findLibrary("androidx.lifecycle.runtimeCompose").get())
+                add("implementation", libs.findLibrary("androidx.lifecycle.viewModelCompose").get())
 
                 add("testImplementation", libs.findLibrary("junit").get())
             }

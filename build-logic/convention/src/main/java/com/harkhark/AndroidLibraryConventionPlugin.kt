@@ -14,16 +14,15 @@ internal class AndroidLibraryConventionPlugin : Plugin<Project> {
         with(pluginManager) {
             apply("com.android.library")
             apply("org.jetbrains.kotlin.android")
-            apply("kotlin-kapt")
         }
 
         extensions.configure<LibraryExtension> {
             compileSdk = 34
 
             defaultConfig {
+                minSdk = 21
                 testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
                 consumerProguardFiles("consumer-rules.pro")
-                minSdk = 26
             }
 
             buildTypes {
@@ -35,15 +34,12 @@ internal class AndroidLibraryConventionPlugin : Plugin<Project> {
                     )
                 }
             }
-
-            compileOptions {
-                sourceCompatibility = JavaVersion.VERSION_1_8
-                targetCompatibility = JavaVersion.VERSION_1_8
-            }
         }
 
         dependencies {
             add("implementation", libs.findLibrary("timber").get())
+            add("testImplementation", libs.findLibrary("junit").get())
+            add("androidTestImplementation", libs.findLibrary("androidx-junit").get())
         }
     }
 }

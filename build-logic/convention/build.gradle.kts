@@ -53,7 +53,7 @@ gradlePlugin {
         }
         register("androidRoom") {
             id = "harkhark.android.room"
-            implementationClass = "com.harkhark.cAndroidRoomConventionPlugin"
+            implementationClass = "com.harkhark.AndroidRoomConventionPlugin"
         }
     }
 }

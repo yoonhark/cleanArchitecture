@@ -8,6 +8,13 @@ android {
     namespace = "com.harkhark.cleanarchitecture"
     compileSdk = 34
 
+    buildFeatures {
+        dataBinding = true
+        buildConfig = true
+        compose = true
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.harkhark.cleanarchitecture"
         versionCode = 1
@@ -35,20 +42,20 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:common"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:designsystem"))
+
+    implementation(libs.timber)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
 }
